@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+<body style="background: linear-gradient(to bottom, #da81c7, #85a2d8);">
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">Productos del usuario {{ user.username|upper }}</h2>
+    <div class="row">
+      {% for producto in productos_aleatorios %}
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ producto.nombre }}</h5>
+            <p class="card-text">{{ producto.descripcion }}</p>
+            <p class="card-text">Precio: ${{ producto.precio }}</p>
+            <img src="{{ producto.imagen.url }}" class="card-img-top" alt="{{ producto.nombre }}">
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+{% endblock %}
+
